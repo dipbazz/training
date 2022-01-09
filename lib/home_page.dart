@@ -17,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: color.AppColor.homePageBackground,
       body: Container(
-        padding: const EdgeInsets.only(top: 50, left: 30, right: 30),
+        padding: const EdgeInsets.only(top: 45, left: 25, right: 25),
         child: Column(
           children: [
             Row(
@@ -68,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: color.AppColor.homePageTitle,
                   ),
                 ),
+                const SizedBox(width: 5),
                 Icon(
                   Icons.arrow_forward,
                   size: 15,
@@ -98,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   BoxShadow(
                     offset: const Offset(10, 10),
                     blurRadius: 20,
-                    color: color.AppColor.gradientSecond.withOpacity(0.2),
+                    color: color.AppColor.gradientSecond.withOpacity(0.5),
                   )
                 ]
               ),
@@ -170,6 +171,33 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               )
+            ),
+            const SizedBox(height: 20),
+            Container(
+              height: 130,
+              width: MediaQuery.of(context).size.width,
+              child: Stack(
+                children: [
+                  Container(
+                    height: 120,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      image: const DecorationImage(
+                        image: AssetImage("assets/card.png"),
+                        fit: BoxFit.fill,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 15,
+                          color: color.AppColor.gradientSecond.withOpacity(0.5),
+                          offset: const Offset(3, 5),
+                        )
+                      ]
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),
