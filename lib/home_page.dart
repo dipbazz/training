@@ -79,15 +79,97 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               width: MediaQuery.of(context).size.width,
               height: 200,
-              decoration: const BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    color.AppColor.gradientFirst.withOpacity(0.8),
+                    color.AppColor.gradientSecond.withOpacity(0.9),
+                  ],
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.centerRight,
+                ),
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(10),
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10),
                   topRight: Radius.circular(80),
-                )
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    offset: const Offset(10, 10),
+                    blurRadius: 20,
+                    color: color.AppColor.gradientSecond.withOpacity(0.2),
+                  )
+                ]
               ),
+              child: Container(
+                padding: const EdgeInsets.only(left: 15, top: 20, right: 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Next workout",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: color.AppColor.homePageContainerTextSmall,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      "Leg workout",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: color.AppColor.homePageContainerTextSmall,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      "and Glutes workout",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: color.AppColor.homePageContainerTextSmall,
+                      ),
+                    ),
+                    const SizedBox(height: 35),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(Icons.timer, size: 15, color: color.AppColor.homePageContainerTextSmall),
+                            const SizedBox(width: 8),
+                            Text(
+                              "60 min",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: color.AppColor.homePageContainerTextSmall,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Expanded(child: Container()),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            boxShadow: [
+                              BoxShadow(
+                                color: color.AppColor.gradientFirst,
+                                blurRadius: 8,
+                                offset: const Offset(3, 5),
+                              )
+                            ]
+                          ),
+                          child: const Icon(
+                            Icons.play_circle_fill,
+                            color: Colors.white,
+                            size: 60,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              )
             )
           ],
         ),
