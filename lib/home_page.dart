@@ -256,47 +256,49 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             Expanded(
-                child: ListView.builder(
-                    itemCount: exercises.length,
-                    itemBuilder: (_, i) {
-                      return Row(
-                        children: [
-                          Container(
-                            height: 170,
-                            width: 200,
-                            padding: const EdgeInsets.only(bottom: 5),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                    exercises[i]['img'],
-                                  )
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                      blurRadius: 3,
-                                      offset: const Offset(5, 5),
-                                      color: color.AppColor.gradientSecond
-                                          .withOpacity(0.1))
-                                ]),
-                            child: Center(
-                              child: Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Text(
-                                  "glues",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                    color: color.AppColor.homePageDetail,
-                                  ),
-                                ),
+              child: ListView.builder(
+                itemCount: exercises.length,
+                itemBuilder: (_, i) {
+                  return Row(
+                    children: [
+                      Container(
+                        height: 170,
+                        width: 200,
+                        padding: const EdgeInsets.only(bottom: 5),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                exercises[i]['img'],
+                              )
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 3,
+                                  offset: const Offset(5, 5),
+                                  color: color.AppColor.gradientSecond
+                                      .withOpacity(0.1))
+                            ]),
+                        child: Center(
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Text(
+                              exercises[i]['title'],
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: color.AppColor.homePageDetail,
                               ),
                             ),
-                          )
-                        ],
-                      );
-                    }))
+                          ),
+                        ),
+                      )
+                    ],
+                  );
+                }
+              )
+            )
           ],
         ),
       ),
