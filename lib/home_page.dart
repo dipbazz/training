@@ -172,15 +172,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               )
             ),
-            const SizedBox(height: 20),
-            Container(
-              height: 130,
+            const SizedBox(height: 10),
+            SizedBox(
+              height: 150,
               width: MediaQuery.of(context).size.width,
               child: Stack(
                 children: [
                   Container(
                     height: 120,
                     width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.only(top: 30),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: const DecorationImage(
@@ -190,10 +191,21 @@ class _MyHomePageState extends State<MyHomePage> {
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 15,
-                          color: color.AppColor.gradientSecond.withOpacity(0.5),
+                          color: color.AppColor.gradientSecond.withOpacity(0.4),
                           offset: const Offset(3, 5),
                         )
                       ]
+                    ),
+                  ),
+                  Container(
+                    height: 200,
+                    width: MediaQuery.of(context).size.width,
+                    margin: const EdgeInsets.only(right: 200, bottom: 20),
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/figure.png"),
+                        // fit: BoxFit.fill,
+                      )
                     ),
                   )
                 ],
