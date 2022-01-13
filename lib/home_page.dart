@@ -207,6 +207,39 @@ class _MyHomePageState extends State<MyHomePage> {
                         // fit: BoxFit.fill,
                       )
                     ),
+                  ),
+                  Container(
+                    width: double.maxFinite,
+                    height: 100,
+                    margin: const EdgeInsets.only(left: 150, top: 50),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "You are doing great.",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: color.AppColor.homePageDetail,
+                          )
+                        ),
+                        const SizedBox(height: 10),
+                        RichText(
+                          text: TextSpan(
+                            text: "Keep it up\n",
+                            style: TextStyle(
+                              color: color.AppColor.homePagePlanColor,
+                              fontSize: 16,
+                            ),
+                            children: const [
+                              TextSpan(
+                                text: "stick to your plan"
+                              )
+                            ]
+                          )
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
