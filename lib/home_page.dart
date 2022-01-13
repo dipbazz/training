@@ -256,49 +256,85 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             Expanded(
-              child: ListView.builder(
-                itemCount: exercises.length,
-                itemBuilder: (_, i) {
-                  return Row(
-                    children: [
-                      Container(
-                        height: 170,
-                        width: 200,
-                        padding: const EdgeInsets.only(bottom: 5),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                              image: AssetImage(
-                                exercises[i]['img'],
-                              )
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 3,
-                                  offset: const Offset(5, 5),
-                                  color: color.AppColor.gradientSecond
-                                      .withOpacity(0.1))
-                            ]),
-                        child: Center(
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Text(
-                              exercises[i]['title'],
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: color.AppColor.homePageDetail,
+                child: OverflowBox(
+                  maxWidth: MediaQuery.of(context).size.width,
+                  child: ListView.builder(
+                    itemCount: exercises.length.toDouble() ~/ 2,
+                    itemBuilder: (_, i) {
+                      int a = 2 * i;
+                      int b = 2 * i + 1;
+                      return Row(
+                        children: [
+                          Container(
+                            height: 170,
+                            width: (MediaQuery.of(context).size.width - 90)/2,
+                            padding: const EdgeInsets.only(bottom: 5),
+                            margin: const EdgeInsets.only(left: 30, right: 15, bottom: 15),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                  exercises[a]['img'],
+                                )),
+                                boxShadow: [
+                                  BoxShadow(
+                                      blurRadius: 5,
+                                      offset: const Offset(0, 5),
+                                      color: color.AppColor.gradientSecond
+                                          .withOpacity(0.2))
+                                ]),
+                            child: Center(
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Text(
+                                  exercises[a]['title'],
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: color.AppColor.homePageDetail,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
-                  );
-                }
-              )
-            )
+                          Container(
+                            height: 170,
+                            width: (MediaQuery.of(context).size.width - 90)/2,
+                            padding: const EdgeInsets.only(bottom: 5),
+                            margin: const EdgeInsets.only(right: 30, left: 15, bottom: 15),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                  exercises[b]['img'],
+                                )),
+                                boxShadow: [
+                                  BoxShadow(
+                                      blurRadius: 5,
+                                      offset: const Offset(0, 5),
+                                      color: color.AppColor.gradientSecond
+                                          .withOpacity(0.2))
+                                ]),
+                            child: Center(
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Text(
+                                  exercises[b]['title'],
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: color.AppColor.homePageDetail,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      );
+                    }))
+                ),
           ],
         ),
       ),
