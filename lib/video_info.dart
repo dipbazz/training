@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:training/home_page.dart';
 import 'colors.dart' as color;
 
 class VideoInfo extends StatefulWidget {
@@ -50,10 +52,15 @@ class _VideoInfoState extends State<VideoInfo> {
                 children: [
                   Row(
                     children: [
-                      Icon(
-                        Icons.arrow_back_ios,
-                        size: 20,
-                        color: color.AppColor.secondPageIconColor,
+                      InkWell(
+                        onTap: () {
+                          Get.to(() => const MyHomePage());
+                        },
+                        child: Icon(
+                          Icons.arrow_back_ios,
+                          size: 20,
+                          color: color.AppColor.secondPageIconColor,
+                        ),
                       ),
                       Expanded(child: Container()),
                       Icon(
@@ -106,7 +113,7 @@ class _VideoInfoState extends State<VideoInfo> {
                             ),
                             const SizedBox(width: 5),
                             Text(
-                              "68 min",
+                              "60 min",
                               style: TextStyle(
                                 fontSize: 16,
                                 color: color.AppColor.secondPageIconColor
