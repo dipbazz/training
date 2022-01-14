@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:training/video_info.dart';
 
 import 'colors.dart' as color;
 
@@ -68,16 +70,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Expanded(child: Container()),
-                Text(
-                  "Details",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: color.AppColor.homePageTitle,
+                InkWell(
+                  onTap: () {
+                    Get.to(() => const VideoInfo());
+                  },
+                  child: Row(
+                    children: [
+                      Text(
+                        "details",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: color.AppColor.homePageDetail,
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      Icon(
+                        Icons.arrow_forward,
+                        size: 15,
+                        color: color.AppColor.homePageDetail
+                      ),
+                    ],
                   ),
-                ),
-                const SizedBox(width: 5),
-                Icon(Icons.arrow_forward,
-                    size: 15, color: color.AppColor.homePageIcons)
+                )
               ],
             ),
             const SizedBox(height: 15),
