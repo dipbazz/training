@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'colors.dart' as color;
 
@@ -9,6 +11,20 @@ class VideoInfo extends StatefulWidget {
 }
 
 class _VideoInfoState extends State<VideoInfo> {
+    List exercises = [];
+
+  _initData() {
+    DefaultAssetBundle.of(context).loadString("json/videoinfo.json").then((value) {
+      exercises = json.decode(value);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,14 +156,13 @@ class _VideoInfoState extends State<VideoInfo> {
             ),
             Expanded(
               child: Container(
-                padding: const EdgeInsets.only(left: 25, right: 25),
+                padding: const EdgeInsets.only(top: 25, left: 25, right: 25),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(topRight: Radius.circular(70))
                 ),
                 child: Column(
                   children: [
-                    const SizedBox(height: 25),
                     Row(
                       children: [
                         Text(
@@ -159,25 +174,29 @@ class _VideoInfoState extends State<VideoInfo> {
                           ),
                         ),
                         Expanded(child: Container()),
-                        SizedBox(
-                          width: 20,
-                          child:
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.sync_alt_outlined,
-                                  size: 20,
-                                  color: color.AppColor.secondPageIconColor
-                                )
-                              ],
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.loop,
+                              size: 20,
+                              color: color.AppColor.loopColor
                             ),
+                            const SizedBox(width: 10),
+                            Text(
+                              "3 sets",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: color.AppColor.setsColor,
+                              ),
+                            )
+                          ],
                         )
                       ]
                     )
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
