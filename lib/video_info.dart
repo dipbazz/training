@@ -204,6 +204,7 @@ class _VideoInfoState extends State<VideoInfo> {
                 ),
               ),
             ),
+
           ],
         ),
       ),
